@@ -155,7 +155,8 @@ function displayResults(trimesterStart, trimesterEnd, courseStart, courseEnd, co
             <strong>Online Course Period:</strong><br>
             Start: ${formatDate(courseStart)} | End: ${formatDate(courseEnd)}<br><br>
             <strong>On your trimester date, you should be at:</strong><br>
-            <span class='result'>${formatDate(courseDate)}</span> in your online course.
+            <span class='result'>${formatDate(courseDate)}</span><br>
+            <em>in your online course.</em>
         `;
         
         outputElement.style.display = 'block';

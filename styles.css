@@ -135,6 +135,11 @@ button {
     position: relative;
     overflow: hidden;
     height: 55px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button::before {
@@ -186,14 +191,16 @@ button:active {
     font-size: 1.3rem;
     color: #667eea;
     font-weight: 700;
-    display: inline-block;
+    display: block;
     background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
-    padding: 10px 15px;
-    border-radius: 8px;
+    padding: 15px 20px;
+    border-radius: 10px;
     border: 1px solid #667eea;
-    margin: 8px 6px;
+    margin: 10px 0;
     white-space: nowrap;
-    vertical-align: baseline;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(102, 126, 234, 0.1);
 }
 
@@ -363,8 +370,8 @@ button:active {
     
     button {
         padding: 12px 16px;
-        height: 46px;
-        font-size: 0.9rem;
+        height: 50px;
+        font-size: 0.85rem;
         margin-top: 10px;
         margin-bottom: 40px; /* Increased bottom margin for iOS */
         border-radius: 8px;
@@ -376,6 +383,14 @@ button:active {
         border: none;
         cursor: pointer;
         touch-action: manipulation; /* Improve touch response */
+        /* Prevent text wrapping */
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
     }
     
     .info {
