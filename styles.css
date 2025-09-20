@@ -197,7 +197,9 @@ button:active {
 /* Responsive design */
 @media (max-width: 768px) {
     body {
-        padding: 15px;
+        padding: 15px 15px 40px 15px; /* Added bottom padding */
+        min-height: 100vh;
+        box-sizing: border-box;
     }
     
     .container {
@@ -205,6 +207,7 @@ button:active {
         padding: 20px;
         border-radius: 15px;
         max-width: 100%;
+        box-sizing: border-box;
     }
     
     h1 {
@@ -215,17 +218,22 @@ button:active {
     
     .form-group {
         margin-bottom: 20px;
+        width: 100%;
     }
     
     label {
         font-size: 1rem;
         margin-bottom: 6px;
+        display: block;
+        width: 100%;
     }
     
     input[type="date"], select {
         padding: 12px 15px;
         height: 48px;
         font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     button {
@@ -233,13 +241,19 @@ button:active {
         height: 50px;
         font-size: 1rem;
         margin-top: 15px;
+        margin-bottom: 20px; /* Added bottom margin */
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .info {
         padding: 20px;
         margin-top: 20px;
+        margin-bottom: 20px; /* Added bottom margin */
         font-size: 0.95rem;
         line-height: 1.6;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .result {
@@ -249,19 +263,26 @@ button:active {
         display: block;
         text-align: center;
         margin-top: 10px;
+        width: calc(100% - 8px);
+        box-sizing: border-box;
     }
 }
 
 @media (max-width: 480px) {
     body {
-        padding: 8px;
+        padding: 8px 8px 60px 8px; /* Added bottom padding to prevent button cutoff */
         font-size: 14px;
+        min-height: 100vh;
+        box-sizing: border-box;
     }
     
     .container {
         padding: 15px;
         margin: 0;
         border-radius: 12px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     h1 {
@@ -272,12 +293,15 @@ button:active {
     
     .form-group {
         margin-bottom: 15px;
+        width: 100%;
     }
     
     label {
         font-size: 0.9rem;
         margin-bottom: 5px;
         font-weight: 600;
+        display: block;
+        width: 100%;
     }
     
     input[type="date"], select {
@@ -285,6 +309,20 @@ button:active {
         height: 44px;
         font-size: 0.9rem;
         border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    
+    /* Ensure select dropdown has consistent styling */
+    select {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 12px;
+        padding-right: 35px;
     }
     
     button {
@@ -292,15 +330,21 @@ button:active {
         height: 46px;
         font-size: 0.9rem;
         margin-top: 10px;
+        margin-bottom: 20px; /* Added bottom margin to prevent cutoff */
         border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .info {
         padding: 15px;
         margin-top: 15px;
+        margin-bottom: 20px; /* Added bottom margin */
         font-size: 0.85rem;
         line-height: 1.5;
         border-radius: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .result {
@@ -310,6 +354,8 @@ button:active {
         display: block;
         text-align: center;
         border-radius: 6px;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
