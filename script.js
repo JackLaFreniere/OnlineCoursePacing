@@ -21,22 +21,29 @@ function initializeApp() {
  */
 function fixIOSViewport() {
     // Calculate actual viewport height for iOS Safari
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    function setViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    // Set initial viewport height
+    setViewportHeight();
     
     // Recalculate on resize/orientation change
     window.addEventListener('resize', () => {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        // Small delay to ensure viewport has settled
+        setTimeout(setViewportHeight, 100);
     });
     
-    // Also handle orientation change specifically for mobile devices
+    // Handle orientation change specifically for mobile devices
     window.addEventListener('orientationchange', () => {
-        setTimeout(() => {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }, 500); // Delay to ensure viewport has adjusted
+        // Longer delay for orientation change
+        setTimeout(setViewportHeight, 500);
     });
+    
+    // Ensure scrolling works properly on iOS
+    document.addEventListener('touchstart', function() {}, { passive: true });
+    document.addEventListener('touchmove', function() {}, { passive: true });
 }
 
 /**

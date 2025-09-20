@@ -301,16 +301,12 @@ button:active {
         padding: 8px 8px 100px 8px; /* Increased bottom padding for iOS */
         font-size: 14px;
         min-height: 100vh;
-        min-height: -webkit-fill-available; /* iOS Safari fix */
+        min-height: calc(var(--vh, 1vh) * 100); /* iOS Safari fix */
         box-sizing: border-box;
-        /* Prevent iOS Safari bounce */
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow-y: auto;
+        /* Better iOS Safari scrolling */
         -webkit-overflow-scrolling: touch;
+        overflow-x: hidden;
+        position: relative;
     }
     
     .container {
