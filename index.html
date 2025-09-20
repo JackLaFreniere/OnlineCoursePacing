@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trimester to Online Course Day Mapper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Trimester to Online Course Day Mapper</h1>
+    <form id="dateForm">
+        <div class="form-group">
+            <label for="trimester_start">Trimester Start Date:</label>
+            <select id="trimester_start" required>
+                <option value="2025-09-02">1st Trimester (09-02-25)</option>
+                <option value="2025-12-02">2nd Trimester (12-02-25)</option>
+                <option value="2026-03-10">3rd Trimester (03-10-26)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="course_start">Online Course Start Date:</label>
+            <input type="date" id="course_start" required>
+        </div>
+        <div class="form-group">
+            <label for="target_date">Select a Real Life Trimester Date:</label>
+            <input type="date" id="target_date" required>
+        </div>
+        <button type="submit">Find Corresponding Online Course Day</button>
+    </form>
+    <div class="info" id="output" style="display:none;"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
