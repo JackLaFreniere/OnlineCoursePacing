@@ -7,13 +7,28 @@
     box-sizing: border-box;
 }
 
+/* iOS Safari specific fixes */
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* CSS custom properties for iOS viewport fix */
+:root {
+    --vh: 1vh;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100); /* iOS Safari fix */
     padding: 20px;
     color: #333;
     line-height: 1.6;
+    /* iOS Safari viewport fix */
+    -webkit-overflow-scrolling: touch;
+    position: relative;
 }
 
 .container {
@@ -269,20 +284,37 @@ button:active {
 }
 
 @media (max-width: 480px) {
+    /* iOS Safari specific fixes */
+    html {
+        height: 100%;
+        height: -webkit-fill-available;
+    }
+    
     body {
-        padding: 8px 8px 60px 8px; /* Added bottom padding to prevent button cutoff */
+        padding: 8px 8px 100px 8px; /* Increased bottom padding for iOS */
         font-size: 14px;
         min-height: 100vh;
+        min-height: -webkit-fill-available; /* iOS Safari fix */
         box-sizing: border-box;
+        /* Prevent iOS Safari bounce */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .container {
         padding: 15px;
-        margin: 0;
+        margin: 0 auto;
         border-radius: 12px;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+        /* Ensure container doesn't extend beyond viewport */
+        margin-bottom: 40px;
     }
     
     h1 {
@@ -314,6 +346,10 @@ button:active {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+        /* iOS specific fixes */
+        -webkit-border-radius: 8px;
+        border: 2px solid #e1e8ed;
+        background: white;
     }
     
     /* Ensure select dropdown has consistent styling */
@@ -330,16 +366,22 @@ button:active {
         height: 46px;
         font-size: 0.9rem;
         margin-top: 10px;
-        margin-bottom: 20px; /* Added bottom margin to prevent cutoff */
+        margin-bottom: 40px; /* Increased bottom margin for iOS */
         border-radius: 8px;
         width: 100%;
         box-sizing: border-box;
+        /* iOS specific button fixes */
+        -webkit-appearance: none;
+        -webkit-border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        touch-action: manipulation; /* Improve touch response */
     }
     
     .info {
         padding: 15px;
         margin-top: 15px;
-        margin-bottom: 20px; /* Added bottom margin */
+        margin-bottom: 40px; /* Increased bottom margin for iOS */
         font-size: 0.85rem;
         line-height: 1.5;
         border-radius: 10px;

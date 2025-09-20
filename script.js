@@ -13,6 +13,30 @@ const COURSE_WEEKS = 20;
 function initializeApp() {
     setDefaultDate();
     setupFormHandler();
+    fixIOSViewport();
+}
+
+/**
+ * Fix iOS Safari viewport height issues
+ */
+function fixIOSViewport() {
+    // Calculate actual viewport height for iOS Safari
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
+    // Recalculate on resize/orientation change
+    window.addEventListener('resize', () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+    
+    // Also handle orientation change specifically for mobile devices
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }, 500); // Delay to ensure viewport has adjusted
+    });
 }
 
 /**
